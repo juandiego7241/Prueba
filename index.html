@@ -6,6 +6,13 @@
     <title>Grit Burguer & Café | Sabor con Garra</title>
     <meta name="description" content="Hamburguesas artesanales y café de especialidad en Lima. Sabor urbano con garra.">
     
+    <!-- Meta Tags para Redes Sociales (WhatsApp/Facebook Preview) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Grit Burguer & Café | Sabor con Garra">
+    <meta property="og:description" content="Hamburguesas smash, alitas y café en Magdalena. ¡Mira nuestra carta y pide aquí!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1586190848861-99c8a3da7ce3?q=80&w=1000&auto=format&fit=crop">
+    <meta property="og:url" content="https://grit-burguer.github.io">
+    
     <!-- Favicon (Icono de Fuego en la pestaña) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     
@@ -107,6 +114,9 @@
             <img src="https://images.unsplash.com/photo-1586190848861-99c8a3da7ce3?q=80&w=2070&auto=format&fit=crop" alt="Hamburguesa Artesanal Grit" class="w-full h-full object-cover opacity-60">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
         </div>
+
+        <!-- Contenedor de Brasas -->
+        <div id="embers-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
 
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
             <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent/50 text-xs font-bold tracking-widest uppercase mb-4 animate-pulse">
@@ -791,6 +801,28 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Generador de Brasas (Fire Embers)
+        function createEmbers() {
+            const container = document.getElementById('embers-container');
+            const emberCount = 30; // Cantidad de partículas
+
+            for (let i = 0; i < emberCount; i++) {
+                const ember = document.createElement('div');
+                ember.classList.add('ember');
+                
+                // Posición horizontal aleatoria
+                ember.style.left = Math.random() * 100 + '%';
+                
+                // Duración y retraso aleatorios para que se vea orgánico
+                const duration = 3 + Math.random() * 5; // Entre 3 y 8 segundos
+                ember.style.animationDuration = duration + 's';
+                ember.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(ember);
+            }
+        }
+        createEmbers();
     </script>
 </body>
 </html>
