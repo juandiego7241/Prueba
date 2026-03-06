@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grit Burguer & Café | Sabor con Carácter</title>
-    <meta name="description" content="Hamburguesas artesanales y café de especialidad en Lima. Sabor urbano con carácter.">
+    <title>Grit Burguer & Café | Sabor con Garra</title>
+    <meta name="description" content="Hamburguesas artesanales y café de especialidad en Lima. Sabor urbano con garra.">
+    
+    <!-- Favicon (Icono de Fuego en la pestaña) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,6 +55,16 @@
             display: flex;
             width: max-content;
             animation: marquee 20s linear infinite;
+        }
+        /* Efecto Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -142,7 +155,7 @@
             </div>
 
             <!-- PROMOCIONES DESTACADAS (Siempre visibles) -->
-            <div class="mb-20">
+            <div class="mb-20 reveal">
                 <h3 class="text-2xl font-bold text-yellow-500 mb-8 flex items-center gap-2">
                     <i data-lucide="zap" class="w-6 h-6 fill-current"></i> PROMOS ACTIVAS
                 </h3>
@@ -175,7 +188,7 @@
             </div>
 
             <!-- TABS DE NAVEGACIÓN -->
-            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 border-b border-zinc-800 pb-4">
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 border-b border-zinc-800 pb-4 reveal">
                 <button onclick="openTab('burgers')" class="tab-btn active px-6 py-2 rounded-full text-sm font-bold transition-all bg-brand-accent text-white" data-target="burgers">HAMBURGUESAS</button>
                 <button onclick="openTab('alitas')" class="tab-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-zinc-800 text-zinc-400 hover:text-white" data-target="alitas">ALITAS</button>
                 <button onclick="openTab('salchis')" class="tab-btn px-6 py-2 rounded-full text-sm font-bold transition-all bg-zinc-800 text-zinc-400 hover:text-white" data-target="salchis">SALCHIPAPAS</button>
@@ -265,15 +278,15 @@
                             </div>
                             <h4 class="text-zinc-300 font-bold mb-4">Elige tu sabor favorito:</h4>
                             <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent cursor-default transition-colors">BBQ</span>
-                                <span class="px-4 py-2 bg-red-900/30 text-red-400 rounded-lg border border-red-900/50 hover:border-red-500 cursor-default transition-colors">BBQ Picante</span>
-                                <span class="px-4 py-2 bg-yellow-900/30 text-yellow-400 rounded-lg border border-yellow-900/50 hover:border-yellow-500 cursor-default transition-colors">BBQ Maracuyá</span>
-                                <span class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent cursor-default transition-colors">Acevichada</span>
-                                <span class="px-4 py-2 bg-red-900/30 text-red-400 rounded-lg border border-red-900/50 hover:border-red-500 cursor-default transition-colors">Buffalo</span>
-                                <span class="px-4 py-2 bg-yellow-900/30 text-yellow-400 rounded-lg border border-yellow-900/50 hover:border-yellow-500 cursor-default transition-colors">Maracuyá</span>
-                                <span class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent cursor-default transition-colors">Crispy</span>
-                                <span class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent cursor-default transition-colors">Honey Mustard</span>
-                                <span class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent cursor-default transition-colors">Teriyaki</span>
+                                <button onclick="openModal('Alitas BBQ', 'S/20', '6 alitas crujientes bañadas en nuestra salsa BBQ clásica + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent hover:text-white cursor-pointer transition-colors">BBQ</button>
+                                <button onclick="openModal('Alitas BBQ Picante', 'S/20', '6 alitas con el toque ahumado del BBQ y un picante adictivo + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-red-900/30 text-red-400 rounded-lg border border-red-900/50 hover:border-red-500 hover:text-white cursor-pointer transition-colors">BBQ Picante</button>
+                                <button onclick="openModal('Alitas BBQ Maracuyá', 'S/20', '6 alitas fusión dulce y ahumada con maracuyá + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-yellow-900/30 text-yellow-400 rounded-lg border border-yellow-900/50 hover:border-yellow-500 hover:text-white cursor-pointer transition-colors">BBQ Maracuyá</button>
+                                <button onclick="openModal('Alitas Acevichada', 'S/20', '6 alitas con nuestra salsa acevichada de la casa + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent hover:text-white cursor-pointer transition-colors">Acevichada</button>
+                                <button onclick="openModal('Alitas Buffalo', 'S/20', '6 alitas estilo americano con salsa Buffalo picante + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-red-900/30 text-red-400 rounded-lg border border-red-900/50 hover:border-red-500 hover:text-white cursor-pointer transition-colors">Buffalo</button>
+                                <button onclick="openModal('Alitas Maracuyá', 'S/20', '6 alitas con reducción dulce de maracuyá + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-yellow-900/30 text-yellow-400 rounded-lg border border-yellow-900/50 hover:border-yellow-500 hover:text-white cursor-pointer transition-colors">Maracuyá</button>
+                                <button onclick="openModal('Alitas Crispy', 'S/20', '6 alitas extra crujientes (sin salsa) + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent hover:text-white cursor-pointer transition-colors">Crispy</button>
+                                <button onclick="openModal('Alitas Honey Mustard', 'S/20', '6 alitas con salsa de miel y mostaza + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent hover:text-white cursor-pointer transition-colors">Honey Mustard</button>
+                                <button onclick="openModal('Alitas Teriyaki', 'S/20', '6 alitas con salsa oriental dulce Teriyaki + papas.', 'img/snacks.jpg')" class="px-4 py-2 bg-zinc-800 rounded-lg text-zinc-300 border border-zinc-700 hover:border-brand-accent hover:text-white cursor-pointer transition-colors">Teriyaki</button>
                             </div>
                         </div>
                     </div>
@@ -283,7 +296,7 @@
                 <div id="salchis" class="tab-content hidden animate-fade-in">
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Salchipapa Clásica', 'S/12', 'Hot dog ahumado, papas fritas crujientes y todas las cremas.', 'img/salchi_clasica.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/salchi_clasica.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Salchipapa">
                             </div>
@@ -296,7 +309,7 @@
                             </div>
                         </div>
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Salchipapa Royal', 'S/15', 'Hot dog ahumado, papas fritas, huevo frito y queso derretido.', 'img/salchi_royal.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/salchi_royal.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Salchipapa Royal">
                             </div>
@@ -309,7 +322,7 @@
                             </div>
                         </div>
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Salchipapa Mixta', 'S/16', 'Hot dog ahumado, chorizo parrillero y papas fritas.', 'img/salchi_mixta.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/salchi_mixta.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Salchipapa Mixta">
                             </div>
@@ -322,7 +335,7 @@
                             </div>
                         </div>
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Salchipapa A lo Pobre', 'S/16', 'Hot dog ahumado, papas fritas, huevo, queso y plátano frito.', 'img/salchi_pobre.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/salchi_pobre.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Salchi A lo Pobre">
                             </div>
@@ -335,7 +348,7 @@
                             </div>
                         </div>
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Salchi Burguer', 'S/16', 'Hot dog ahumado, papas fritas y trozos de hamburguesa artesanal.', 'img/salchi_burguer.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/salchi_burguer.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Salchi Burguer">
                             </div>
@@ -348,7 +361,7 @@
                             </div>
                         </div>
                         <!-- Card Salchi -->
-                        <div class="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group">
+                        <div onclick="openModal('Nuggets', 'S/18', 'Porción de nuggets de pollo crujientes con papas fritas.', 'img/nuggets.jpg')" class="cursor-pointer bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-brand-accent transition-all group hover:bg-zinc-800">
                             <div class="h-40 overflow-hidden">
                                 <img src="img/nuggets.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Nuggets">
                             </div>
@@ -403,7 +416,7 @@
     <!-- TESTIMONIOS -->
     <section class="py-24 bg-black relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 reveal">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">LO QUE DICEN</h2>
                 <p class="text-zinc-400">La calle no miente.</p>
@@ -462,7 +475,7 @@
     <!-- CONTACTO & UBICACIÓN -->
     <section id="ubicacion" class="py-24 bg-zinc-900 border-t border-zinc-800">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl p-8 md:p-16 border border-zinc-700 shadow-2xl flex flex-col md:flex-row items-center gap-12">
+            <div class="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-3xl p-8 md:p-16 border border-zinc-700 shadow-2xl flex flex-col md:flex-row items-center gap-12 reveal">
                 
                 <div class="flex-1 text-center md:text-left space-y-6">
                     <h2 class="text-3xl md:text-4xl font-black text-white">¿Listo para probar Grit?</h2>
@@ -647,6 +660,23 @@
         }
         checkStatus();
         setInterval(checkStatus, 60000); // Actualizar cada minuto
+
+        // Lógica de Scroll Reveal (Aparición suave)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Solo animar una vez
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15, // Se activa cuando el 15% del elemento es visible
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
