@@ -156,9 +156,15 @@
 
             <!-- PROMOCIONES DESTACADAS (Siempre visibles) -->
             <div class="mb-20 reveal">
-                <h3 class="text-2xl font-bold text-yellow-500 mb-8 flex items-center gap-2">
-                    <i data-lucide="zap" class="w-6 h-6 fill-current"></i> PROMOS ACTIVAS
-                </h3>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-yellow-500 mb-2 flex items-center gap-2">
+                        <i data-lucide="zap" class="w-6 h-6 fill-current"></i> PROMOS ACTIVAS
+                    </h3>
+                    <p class="text-zinc-400 text-sm flex items-center gap-2">
+                        <i data-lucide="store" class="w-4 h-4 text-brand-accent"></i>
+                        <span class="font-medium text-zinc-300">Válido exclusivamente para consumo en el local.</span>
+                    </p>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Promo 1 -->
                     <div class="relative bg-zinc-900 border border-yellow-500/50 p-6 rounded-xl overflow-hidden group hover:bg-zinc-800 transition-colors">
@@ -509,20 +515,128 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-black border-t border-zinc-900 py-12">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i data-lucide="flame" class="w-5 h-5 text-brand-accent"></i>
-                <span class="text-xl font-black text-white tracking-tighter">GRIT</span>
+    <!-- INSTAGRAM FEED (Simulado para velocidad) -->
+    <section class="py-12 bg-black border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 mb-8 flex flex-col md:flex-row justify-between items-end gap-4 reveal">
+            <div>
+                <span class="text-brand-accent font-bold tracking-widest uppercase text-xs">Social Media</span>
+                <h2 class="text-3xl font-black text-white uppercase">Síguenos en <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">@grit_burguer</span></h2>
             </div>
-            
-            <p class="text-zinc-500 text-sm">© 2026 Grit Burguer & Café. Todos los derechos reservados.</p>
-            
-            <div class="flex gap-6">
-                <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="text-zinc-400 hover:text-brand-accent transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="text-zinc-400 hover:text-brand-accent transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                <a href="#" class="text-zinc-400 hover:text-brand-accent transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm font-bold border-b border-zinc-700 pb-1 hover:border-white">
+                Ver perfil completo <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <!-- Grid de Fotos (Usamos las que ya tienes para simular el feed) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0.5 md:gap-1 reveal">
+            <!-- Foto 1 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900">
+                <img src="img/hamburguesa.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a>
+            <!-- Foto 2 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900">
+                <img src="img/royal.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a>
+            <!-- Foto 3 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900">
+                <img src="img/snacks.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a><!--  -->
+            <!-- Foto 4 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900">
+                <img src="img/salchi_royal.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a>
+            <!-- Foto 5 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900 hidden lg:block">
+                <img src="img/cafe.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a>
+            <!-- Foto 6 -->
+            <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="group relative aspect-square overflow-hidden block bg-zinc-900 hidden lg:block">
+                <img src="img/bebidas.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Instagram Post">
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i data-lucide="instagram" class="text-white w-8 h-8"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Columna 1: Marca -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="flame" class="w-6 h-6 text-brand-accent"></i>
+                        <span class="text-2xl font-black text-white tracking-tighter">GRIT</span>
+                    </div>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        Sabor con garra. Hamburguesas smash y café de especialidad en el corazón de Magdalena.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Explorar</h4>
+                    <ul class="space-y-3 text-zinc-400 text-sm">
+                        <li><a href="#menu" class="hover:text-brand-accent transition-colors">Ver Carta Completa</a></li>
+                        <li><a href="#ubicacion" class="hover:text-brand-accent transition-colors">Ubicación y Horarios</a></li>
+                        <li><a href="https://wa.me/51953214121" class="hover:text-brand-accent transition-colors">Delivery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-3 text-zinc-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-accent mt-0.5"></i>
+                            <span>Jr. Leoncio Prado 1189,<br>Magdalena del Mar</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-accent"></i>
+                            <span>+51 953 214 121</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Social -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/grit_burguer/" target="_blank" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-brand-accent hover:text-white transition-all group">
+                            <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all group">
+                            <i data-lucide="facebook" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center text-zinc-400 hover:bg-black hover:text-white transition-all group">
+                            <i data-lucide="twitter" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Línea final -->
+            <div class="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-zinc-600 text-xs">© 2026 Grit Burguer & Café. Todos los derechos reservados.</p>
+                <p class="text-zinc-700 text-xs flex items-center gap-1">
+                    Hecho con <i data-lucide="heart" class="w-3 h-3 text-red-900 fill-current"></i> y Garra
+                </p>
             </div>
         </div>
     </footer>
