@@ -6,13 +6,6 @@
     <title>Grit Burguer & Café | Sabor con Garra</title>
     <meta name="description" content="Hamburguesas artesanales y café de especialidad en Lima. Sabor urbano con garra.">
     
-    <!-- Meta Tags para Redes Sociales (WhatsApp/Facebook Preview) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Grit Burguer & Café | Sabor con Garra">
-    <meta property="og:description" content="Hamburguesas smash, alitas y café en Magdalena. ¡Mira nuestra carta y pide aquí!">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1586190848861-99c8a3da7ce3?q=80&w=1000&auto=format&fit=crop">
-    <meta property="og:url" content="https://grit-burguer.github.io">
-    
     <!-- Favicon (Icono de Fuego en la pestaña) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     
@@ -73,6 +66,46 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Animación Ken Burns (Zoom de fondo) */
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        .animate-kenburns {
+            animation: kenburns 20s ease-out infinite alternate;
+        }
+        /* Efecto Glitch (Vibración Urbana) */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .animate-glitch {
+            animation: glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+        }
+        /* Efecto de Brasas (Fire Embers) */
+        .ember {
+            position: absolute;
+            bottom: -20px;
+            width: 6px;
+            height: 6px;
+            background: #ea580c; /* Naranja marca */
+            border-radius: 50%;
+            box-shadow: 0 0 15px 2px #ea580c;
+            opacity: 0;
+            animation: rise linear infinite;
+            filter: blur(1px);
+            z-index: 1; /* Detrás del texto */
+        }
+        @keyframes rise {
+            0% { opacity: 0; transform: translateY(0) translateX(0); }
+            10% { opacity: 1; }
+            50% { opacity: 0.8; transform: translateY(-40vh) translateX(20px); }
+            100% { opacity: 0; transform: translateY(-80vh) translateX(-20px); }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white">
@@ -111,19 +144,35 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Imagen de fondo con overlay oscuro -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1586190848861-99c8a3da7ce3?q=80&w=2070&auto=format&fit=crop" alt="Hamburguesa Artesanal Grit" class="w-full h-full object-cover opacity-60">
+            <img src="https://images.unsplash.com/photo-1586190848861-99c8a3da7ce3?q=80&w=2070&auto=format&fit=crop" alt="Hamburguesa Artesanal Grit" class="w-full h-full object-cover opacity-60 animate-kenburns">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
         </div>
 
         <!-- Contenedor de Brasas -->
         <div id="embers-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
 
+        <!-- Badge/Sticker Rotatorio (Elemento Visual Urbano) -->
+        <div class="absolute top-28 right-6 md:right-20 z-20 animate-[spin_12s_linear_infinite] hidden md:block opacity-80 hover:opacity-100 transition-opacity">
+            <svg viewBox="0 0 100 100" width="140" height="140">
+                <!-- Texto Curvo -->
+                <path id="curve" d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0" fill="transparent"/>
+                <text font-size="10.5" font-weight="bold" fill="white" letter-spacing="2">
+                    <textPath href="#curve">
+                        ★ 100% SMASH BURGERS ★ LIMA PERU
+                    </textPath>
+                </text>
+                <!-- Centro -->
+                <circle cx="50" cy="50" r="28" fill="#ea580c" class="shadow-lg" />
+                <text x="50" y="54" text-anchor="middle" fill="white" font-size="16" font-weight="black" style="text-shadow: 1px 1px 2px black;">GRIT</text>
+            </svg>
+        </div>
+
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
             <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent/50 text-xs font-bold tracking-widest uppercase mb-4 animate-pulse">
                 Auténtico Sabor
             </span>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 text-shadow leading-tight">
-                SABOR CON <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">GARRA</span>
+                SABOR CON <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500 inline-block hover:animate-glitch cursor-default transition-transform hover:scale-105">GARRA</span>
             </h1>
             <p class="text-lg md:text-xl text-zinc-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                 Fusionamos la rebeldía de la calle con la maestría culinaria. Hamburguesas artesanales smash y café de especialidad para los que no se conforman.
@@ -219,7 +268,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Item 1 -->
                         <div onclick="openModal('Clásica', 'S/12', 'Carne 100% artesanal, tomate, lechuga y papas.', 'img/hamburguesa.jpg')" class="cursor-pointer bg-zinc-900/80 p-4 rounded-xl border border-zinc-800 flex gap-4 items-center hover:border-brand-accent transition-all group hover:bg-zinc-800">
-                            <img src="img/hamburguesa.jpg" class="w-24 h-24 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Clásica">
+                            <img src="img/hamburguesa.jpg" class="w-32 h-32 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Clásica">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h4 class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Clásica</h4>
@@ -230,7 +279,7 @@
                         </div>
                         <!-- Item 2 -->
                         <div onclick="openModal('Royal', 'S/15', 'Carne, queso derretido, jamón inglés, huevo y papas.', 'img/royal.jpg')" class="cursor-pointer bg-zinc-900/80 p-4 rounded-xl border border-zinc-800 flex gap-4 items-center hover:border-brand-accent transition-all group hover:bg-zinc-800">
-                            <img src="img/royal.jpg" class="w-24 h-24 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Royal">
+                            <img src="img/royal.jpg" class="w-32 h-32 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Royal">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h4 class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Royal</h4>
@@ -241,7 +290,7 @@
                         </div>
                         <!-- Item 3 -->
                         <div onclick="openModal('Ranchera', 'S/16', 'Carne, queso, jamón, chorizo ahumado y papas.', 'img/ranchera.jpg')" class="cursor-pointer bg-zinc-900/80 p-4 rounded-xl border border-zinc-800 flex gap-4 items-center hover:border-brand-accent transition-all group hover:bg-zinc-800">
-                            <img src="img/ranchera.jpg" class="w-24 h-24 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Ranchera">
+                            <img src="img/ranchera.jpg" class="w-32 h-32 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Ranchera">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h4 class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Ranchera</h4>
@@ -252,7 +301,7 @@
                         </div>
                         <!-- Item 4 -->
                         <div onclick="openModal('A lo Pobre', 'S/16', 'Carne, huevo, queso, plátano frito y papas.', 'img/alopobre.jpg')" class="cursor-pointer bg-zinc-900/80 p-4 rounded-xl border border-zinc-800 flex gap-4 items-center hover:border-brand-accent transition-all group hover:bg-zinc-800">
-                            <img src="img/alopobre.jpg" class="w-24 h-24 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="A lo Pobre">
+                            <img src="img/alopobre.jpg" class="w-32 h-32 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="A lo Pobre">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h4 class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">A lo Pobre</h4>
@@ -263,7 +312,7 @@
                         </div>
                         <!-- Item 5 -->
                         <div onclick="openModal('Pollo Deshilachado', 'S/16', 'Pollo, queso, jamón inglés, huevo y papas.', 'img/pollo.jpg')" class="cursor-pointer bg-zinc-900/80 p-4 rounded-xl border border-zinc-800 flex gap-4 items-center hover:border-brand-accent transition-all group hover:bg-zinc-800">
-                            <img src="img/pollo.jpg" class="w-24 h-24 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Pollo">
+                            <img src="img/pollo.jpg" class="w-32 h-32 object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform" alt="Pollo">
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h4 class="text-lg font-bold text-white group-hover:text-brand-accent transition-colors">Pollo Deshilachado</h4>
@@ -801,28 +850,6 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
-
-        // Generador de Brasas (Fire Embers)
-        function createEmbers() {
-            const container = document.getElementById('embers-container');
-            const emberCount = 30; // Cantidad de partículas
-
-            for (let i = 0; i < emberCount; i++) {
-                const ember = document.createElement('div');
-                ember.classList.add('ember');
-                
-                // Posición horizontal aleatoria
-                ember.style.left = Math.random() * 100 + '%';
-                
-                // Duración y retraso aleatorios para que se vea orgánico
-                const duration = 3 + Math.random() * 5; // Entre 3 y 8 segundos
-                ember.style.animationDuration = duration + 's';
-                ember.style.animationDelay = Math.random() * 5 + 's';
-                
-                container.appendChild(ember);
-            }
-        }
-        createEmbers();
     </script>
 </body>
 </html>
