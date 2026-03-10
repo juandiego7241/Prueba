@@ -9,6 +9,11 @@
     <!-- Favicon (Icono de Fuego en la pestaña) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
     
+    <!-- OPTIMIZACIÓN VELOCIDAD: Conexión anticipada y Precarga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="img/hamburguesa.jpg" fetchpriority="high">
+
     <!-- GOOGLE FONTS: Anton (Impacto) y Permanent Marker (Graffiti) -->
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&display=swap" rel="stylesheet">
 
@@ -38,9 +43,6 @@
             }
         }
     </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         /* Ajustes finos para tipografía y efectos */
@@ -121,6 +123,14 @@
             -webkit-text-stroke: 1px #facc15;
             color: rgba(250, 204, 21, 0.1);
         }
+        /* Ocultar Scrollbar para el carrusel de testimonios */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white">
@@ -186,7 +196,7 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Imagen de fondo con overlay oscuro -->
         <div class="absolute inset-0 z-0">
-            <img src="img/hamburguesa.jpg" alt="Hamburguesa Artesanal Grit" class="w-full h-full object-cover opacity-60 animate-kenburns">
+            <img src="img/hamburguesa.jpg" alt="Hamburguesa Artesanal Grit" class="w-full h-full object-cover opacity-60 animate-kenburns" fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
         </div>
 
@@ -549,7 +559,7 @@
             <!-- BENTO GRID LAYOUT: Diseño moderno y asimétrico -->
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6">
                 
-                <!-- Review 1 (Grande - Principal) -->
+                <!-- Review 1: Dayana Herrera -->
                 <div class="md:col-span-2 md:row-span-2 bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-brand-accent/50 transition-colors flex flex-col justify-between group">
                     <div class="flex items-start justify-between">
                         <i data-lucide="quote" class="w-12 h-12 text-zinc-700 group-hover:text-brand-accent transition-colors"></i>
@@ -561,45 +571,37 @@
                             <i data-lucide="star" class="w-5 h-5 fill-current"></i>
                         </div>
                     </div>
-                    <p class="text-xl md:text-3xl text-white font-bold leading-tight my-6">"La mejor smash burger que he probado en Lima. El pan brioche es otro nivel y el sitio tiene una vibra increíble."</p>
+                    <p class="text-xl md:text-3xl text-white font-bold leading-tight my-6">"Super recomendado, me encanta sus alitas acevichadas y su bbq, sus hamburguesas ni se digan 🤤 y sus cremas todo qué ver.…"</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-brand-accent to-orange-500 rounded-full flex items-center justify-center font-bold text-black text-xl">MR</div>
+                        <div class="w-12 h-12 bg-gradient-to-br from-brand-accent to-orange-500 rounded-full flex items-center justify-center font-bold text-black text-xl">DH</div>
                         <div>
-                            <span class="text-white font-bold block">Martín R.</span>
-                            <span class="text-zinc-500 text-sm">Local Guide • 50 reseñas</span>
+                            <span class="text-white font-bold block">Dayana Herrera</span>
+                            <span class="text-zinc-500 text-sm">Hace 2 meses</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 2 (Pequeña) -->
+                <!-- Review 2:  -->
                 <div class="md:col-span-1 md:row-span-1 bg-zinc-900/50 p-6 rounded-3xl border border-zinc-800 flex flex-col justify-center">
                     <div class="flex text-brand-accent mb-2">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
                     </div>
-                    <p class="text-zinc-300 italic mb-4 text-sm">"El café de especialidad es top. Buen ambiente."</p>
+                    <p class="text-zinc-300 italic mb-4 text-sm">"Hermoso lugar😻…"</p>
                     <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center font-bold text-white text-xs">AC</div>
-                        <span class="text-white font-bold text-xs">Andrea C.</span>
+                        <div class="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center font-bold text-white text-xs">DG</div>
+                        <span class="text-white font-bold text-xs">Diana Galarza</span>
                     </div>
                 </div>
 
-                <!-- Review 3 (Pequeña) -->
+                <!-- Review 3: Jeyson Rojas -->
                 <div class="md:col-span-1 md:row-span-1 bg-zinc-900/50 p-6 rounded-3xl border border-zinc-800 flex flex-col justify-center">
                      <div class="flex text-brand-accent mb-2">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
                     </div>
-                    <p class="text-zinc-300 italic mb-4 text-sm">"Papas adictivas. 100% recomendado."</p>
+                    <p class="text-zinc-300 italic mb-4 text-sm">"Muy buena las alitas y hamburguesas, 100% recomendado"</p>
                     <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center font-bold text-white text-xs">JP</div>
-                        <span class="text-white font-bold text-xs">Javier P.</span>
+                        <div class="w-8 h-8 bg-zinc-700 rounded-full flex items-center justify-center font-bold text-white text-xs">BR</div>
+                        <span class="text-white font-bold text-xs">Bilza Ramos</span>
                     </div>
                 </div>
 
@@ -811,6 +813,9 @@
         <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
         <span class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">1</span>
     </a>
+
+    <!-- Lucide Icons (Movido al final para no bloquear la carga visual inicial) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Inicialización de Iconos -->
     <script>
